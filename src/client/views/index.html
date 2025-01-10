@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Article Sentiment Analysis</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="logo">
+                <h1>Article Analyzer</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="form-container">
+                <h2>Analyze Article Sentiment</h2>
+                <p class="instructions">Enter the URL of any article to analyze its sentiment</p>
+                
+                <form id="urlForm" class="analysis-form">
+                    <div class="input-group">
+                        <input 
+                            id="url" 
+                            type="text" 
+                            name="url" 
+                            placeholder="Enter full URL (e.g., https://www.reuters.com/...)" 
+                            required
+                        >
+                        <button type="submit">Analyze</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="results-container">
+                <h2>Analysis Results</h2>
+                <div id="results">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Article Analyzer - Powered by Aylien API</p>
+        </footer>
+    </body>
+</html>
