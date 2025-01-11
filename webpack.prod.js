@@ -35,7 +35,29 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "[name].css",
         }),
-        new WorkboxPlugin.GenerateSW(),
+        new WorkboxPlugin.GenerateSW({
+            // these options encourage the ServiceWorkers to get in there fast
+            // and not allow any straggling "old" SWs to hang around
+            clientsClaim: true,
+            skipWaiting: true,
+            // Exclude images and large files
+            exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+            // Define runtime caching rules
+            runtimeCaching: [{
+                // Match any request that ends with .png, .jpg, .jpeg or .svg
+                urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+                // Apply a cache-first strategy
+                handler: 'CacheFirst',
+                options: {
+                    // Use a custom cache name
+                    cacheName: 'images',
+                    // Only cache 10 images
+                    expiration: {
+                        maxEntries: 10,
+                    },
+                },
+            }],
+        }),
         new CleanWebpackPlugin(),
     ],
     optimization: {
